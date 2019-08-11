@@ -19,12 +19,12 @@ public class UserController {
     @PostMapping("")
     public ResponseEntity addUser(
             @RequestParam(value = "userName", required = true)
-            String userName,
+                    String userName,
             @RequestParam(value = "password", required = true)
-            String password,
+                    String password,
             @RequestParam(value = "phone", required = false)
-            String phone
-    ){
+                    String phone
+    ) {
         UserDomain userDomain = new UserDomain();
         userDomain.setUserName(userName);
         userDomain.setPassword(password);
@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @DeleteMapping("")
-    public ResponseEntity deleteUser(@RequestParam(value = "userId", required = true) Integer userId){
+    public ResponseEntity deleteUser(@RequestParam(value = "userId", required = true) Integer userId) {
 
         userService.deleteUserById(userId);
         return ResponseEntity.ok("删除成功");
@@ -50,7 +50,7 @@ public class UserController {
                     String password,
             @RequestParam(value = "phone", required = false)
                     String phone
-    ){
+    ) {
         UserDomain userDomain = new UserDomain();
         userDomain.setUserId(userId);
         userDomain.setUserName(userName);
@@ -61,7 +61,7 @@ public class UserController {
     }
 
     @GetMapping("")
-    public ResponseEntity getUsers(){
+    public ResponseEntity getUsers() {
         return ResponseEntity.ok(userService.selectUsers());
     }
 
